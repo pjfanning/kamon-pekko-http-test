@@ -5,6 +5,9 @@ ThisBuild / scalaVersion := "2.13.14"
 val pekkoVersion = "1.1.0-M1"
 val kamonVersion = "2.7.3"
 
+enablePlugins(JavaAgent)
+javaAgents += "io.kamon" % "kanela-agent" % "1.0.18" % "runtime"
+
 lazy val root = (project in file("."))
   .settings(
     name := "kamon-pekko-http-test",
