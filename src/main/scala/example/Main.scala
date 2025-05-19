@@ -16,7 +16,8 @@ object Main extends App {
       val id = Kamon.currentContext().get(UserID)
       context.log.info("UserID {}!", id)
       message.replyTo ! SayHello(message.whom)
-      Behaviors.same
+      // prevent a loop by ignoring further messages
+      Behaviors.ignore
     }
   }
 
@@ -32,13 +33,14 @@ object Main extends App {
       }
   }
 
+  Kamon.init()
   val system: ActorSystem[SayHello] = ActorSystem(HelloWorldMain(), "hello")
   try {
     val kamonContext = Context.of(UserID, "12345")
     Kamon.runWithContext(kamonContext) {
       system ! SayHello("World")
     }
-    Thread.sleep(5000)
+    Thread.sleep(120 * 1000)
   } finally {
     system.terminate()
   }
