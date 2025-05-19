@@ -43,5 +43,7 @@ object Main extends App {
     Thread.sleep(120 * 1000)
   } finally {
     system.terminate()
+    Kamon.stop()
+    System.exit(0)
   }
 }
