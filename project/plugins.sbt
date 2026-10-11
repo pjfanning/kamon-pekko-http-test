@@ -1,1 +1,1 @@
-addSbtPlugin("com.github.sbt" % "sbt-javaagent" % "0.1.8")
+addSbtPlugin("com.github.sbt" % "sbt-javaagent" % "0.3.0")
