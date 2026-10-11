@@ -16,7 +16,7 @@ lazy val root = (project in file("."))
     libraryDependencies ++= Seq(
       "org.apache.pekko" %% "pekko-actor-typed" % pekkoVersion,
       "ch.qos.logback" % "logback-classic" % "1.3.16",
-      "io.kamon" %% "kamon-pekko" % kamonVersion,
+      "com.github.pjfanning" %% "kamon-pekko" % "3.0.0-M1",
       "io.kamon" %% "kamon-system-metrics" % kamonVersion,
       "io.kamon" %% "kamon-prometheus" % kamonVersion
     )
